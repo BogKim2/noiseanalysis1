@@ -1,0 +1,60 @@
+전자현미경이미지에 대한 denoising 알고리즘을 python + pyside6 로 구현하고자 함.
+
+우선 File을 open해서 select할수 있는 파트를 만들어 주고,
+
+노이즈 필터로는 다음의 것을 구현해봐.
+
+
+총 8개의 tab을 만들어야 겠네.
+
+1. Bilateral filter
+2. Non-Local Means (NLM)
+3.  Wavelet denoising
+4. Fourier domain filtering
+5. Line-wise correction (Scan-line 기반)
+
+한 라인씩 평균/정규화
+
+Y 방향 줄무늬 제거
+
+👉 스캔 노이즈·진동에 매우 효과적
+
+6. Frequency notch filtering
+
+FFT → 특정 주파수 제거
+
+진동 주파수가 고정일 때 최강
+
+👉 기계 진동 SEM의 정석
+
+7. Anisotropic diffusion
+
+경계 방향 따라 smoothing
+
+SEM 구조 보존 우수
+
+👉 NLM 다음 단계
+
+각각의 경우의 parameter들을 정의하는 section이 있어야 할거 같고 유저가 정한 parameter 에 대한 이미지 처리를 
+처리전과 처리후로 매우크게 보여주면 좋겠음. (다른 윈도우를 띄워도 됨) 여기에서 save image 기능이 있어야 함.
+
+그리고 8번쨰 tab에서는 앞에서 정의된 7가지 필터중에 원하는 것을 순서대로 3개 이하로 select해서 그 결과를 순차적으로 처리해서 final image를 보여주는 기능도 있었으면 좋겠음.
+
+ui 를 만들떄 좀 전문적인 솜씨가 보이게끔 font 와 style을 잘 정의해 주는것이 좋겠음.
+
+ui part는 ui라는 directory 안에 
+logic 은 logic 이라는 directory안에 만들어주고,
+전체는 main.py로 구동이 되어야 함.
+
+
+필요한 모듈은 전부 uv를 이용해서 설치하고 관리할 예정임.
+
+
+이 디렉토리 안에 만들어주고, 여기서 실행이 가능하게 해주며, 
+모든 print문들은 영어로 작성해 주세요.
+
+output file은 output이라는 directory에 정리해서 
+
+어떠한 방법을 사용했나 그리고 언제 만들었나 까지 한번에 알아볼수 있게 파일명을 정리해줘.
+
+README.md는 영어로 작성해주세요.
