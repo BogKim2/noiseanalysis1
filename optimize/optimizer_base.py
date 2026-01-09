@@ -43,6 +43,17 @@ PARAM_BOUNDS = {
         "order": (1, 8, 1),
         "bandwidth": (0.05, 0.3, 0.05),
     },
+    "Wiener": {
+        "psf_size": (3, 15, 2),
+        "psf_sigma": (0.5, 5.0, 0.5),
+        "nsr": (0.001, 0.1, 0.01),
+    },
+    "Richardson-Lucy": {
+        "psf_size": (3, 15, 2),
+        "psf_sigma": (0.5, 5.0, 0.5),
+        "iterations": (5, 50, 5),
+        "regularization": (0.0, 0.01, 0.001),
+    },
 }
 
 

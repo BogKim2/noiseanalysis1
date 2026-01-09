@@ -24,6 +24,7 @@ from logic import (
     FilterBase, FilterParameter, FilterPipeline,
     BilateralFilter, NLMFilter, WaveletFilter, FourierFilter,
     LinewiseFilter, NotchFilter, AnisotropicFilter,
+    WienerFilter, RichardsonLucyFilter,
     get_settings
 )
 from calnoise import NoiseAnalyzer
@@ -1069,20 +1070,20 @@ class PipelineTab(QWidget):
             section.collapse()
     
     def _set_default_pipeline(self) -> None:
-        """기본 파이프라인 설정: Linewise -> Notch -> NLM (약하게)"""
+        """기본 파이프라인 설정: Linewise -> Bilateral -> Wiener"""
         settings = get_settings()
         pipeline_filters = settings.get_pipeline_filters()
         
         if not pipeline_filters:
-            pipeline_filters = ["Linewise", "Notch", "NLM"]
+            pipeline_filters = ["Linewise", "Bilateral", "Wiener"]
         
         filter_names = FilterPipeline.get_available_filter_names()
         
-        # 기본 파라미터 (약한 NLM)
+        # 기본 파라미터
         default_params = {
             "Linewise": {"method": "mean", "strength": 0.8},
-            "Notch": {"center_freq": 0.25, "bandwidth": 0.05, "direction": "both"},
-            "NLM": {"h": 5.0, "templateWindowSize": 7, "searchWindowSize": 21},
+            "Bilateral": {"d": 7, "sigmaColor": 50, "sigmaSpace": 50},
+            "Wiener": {"psf_size": 5, "psf_sigma": 1.0, "nsr": 0.01},
         }
         
         for i, filter_name in enumerate(pipeline_filters[:3]):
@@ -1388,6 +1389,8 @@ class FilterTabWidget(QTabWidget):
         ("5. Line-wise", LinewiseFilter),
         ("6. Notch", NotchFilter),
         ("7. Anisotropic", AnisotropicFilter),
+        ("8. Wiener", WienerFilter),
+        ("9. R-Lucy", RichardsonLucyFilter),
     ]
     
     def __init__(self, parent=None):
@@ -1409,7 +1412,7 @@ class FilterTabWidget(QTabWidget):
         # 파이프라인 탭
         self._pipeline_tab = PipelineTab()
         self._pipeline_tab.save_requested.connect(self._on_save_requested)
-        self.addTab(self._pipeline_tab, "8. Pipeline")
+        self.addTab(self._pipeline_tab, "10. Pipeline")
         self._tabs.append(self._pipeline_tab)
     
     def set_image(self, image: Optional[np.ndarray]) -> None:

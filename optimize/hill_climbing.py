@@ -109,10 +109,10 @@ class HillClimbingOptimizer(OptimizerBase):
                         
                         # 정수 파라미터 처리
                         if param_name in ['window_size', 'iterations', 'num_notches', 'd', 
-                                         'templateWindowSize', 'searchWindowSize', 'order']:
+                                         'templateWindowSize', 'searchWindowSize', 'order', 'psf_size']:
                             new_val = int(round(new_val))
-                            # window_size는 홀수만
-                            if param_name in ['window_size', 'templateWindowSize', 'searchWindowSize']:
+                            # window_size 및 psf_size는 홀수만
+                            if param_name in ['window_size', 'templateWindowSize', 'searchWindowSize', 'psf_size']:
                                 if new_val % 2 == 0:
                                     new_val += 1
                         

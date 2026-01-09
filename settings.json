@@ -1,0 +1,81 @@
+{
+  "last_open_directory": "C:\\Users\\User\\xwechat_files\\wxid_tvz8ox1pd8rl22_2a97\\msg\\file\\2025-12\\denoising_python",
+  "last_file_path": "C:/Users/User/xwechat_files/wxid_tvz8ox1pd8rl22_2a97/msg/file/2025-12/denoising_python/image.png",
+  "window_geometry": {
+    "width": 1924,
+    "height": 1061,
+    "x": 14,
+    "y": 31
+  },
+  "filter_parameters": {
+    "Bilateral": {
+      "d": 15,
+      "sigmaColor": 100.0,
+      "sigmaSpace": 12.73
+    },
+    "NLM": {
+      "h": 1.0,
+      "templateWindowSize": 11,
+      "searchWindowSize": 7
+    },
+    "Wavelet": {
+      "sigma": 0.44,
+      "wavelet": "db1",
+      "mode": "soft",
+      "rescale_sigma": 1
+    },
+    "Fourier": {
+      "cutoff": 0.66,
+      "filter_type": "lowpass",
+      "order": 8,
+      "bandwidth": 0.11
+    },
+    "Linewise": {
+      "direction": "horizontal",
+      "method": "polynomial",
+      "window_size": 17,
+      "strength": 0.1
+    },
+    "Notch": {
+      "center_freq": 0.31,
+      "bandwidth": 0.1,
+      "direction": "both",
+      "auto_detect": 0,
+      "num_notches": 2
+    },
+    "Anisotropic": {
+      "iterations": 5,
+      "kappa": 10.0,
+      "gamma": 0.05,
+      "option": 1
+    },
+    "Wiener": {
+      "psf_size": 3,
+      "psf_sigma": 0.5,
+      "nsr": 0.01
+    },
+    "Richardson-Lucy": {
+      "psf_size": 5,
+      "psf_sigma": 1.0,
+      "iterations": 10,
+      "regularization": 0.0
+    }
+  },
+  "pipeline_filters": [
+    "Linewise",
+    "Bilateral",
+    "Wiener"
+  ],
+  "auto_apply": true,
+  "last_modified": "2026-01-09T09:53:43.538314",
+  "optimization_weights": {
+    "snr": 1.0,
+    "noise_std_mad": 1.0,
+    "edge_sharpness": 1.0,
+    "linewise_h": 1.0,
+    "abnormal_lines_count": 1.0,
+    "negative_penalty_factor": 1.0,
+    "critical_penalty_factor": 2.0,
+    "negative_count_penalty": 1.0
+  }
+}

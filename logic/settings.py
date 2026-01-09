@@ -30,6 +30,8 @@ class Settings:
             "Linewise": {"direction": "horizontal", "method": "mean", "window_size": 5, "strength": 1.0},
             "Notch": {"center_freq": 0.25, "bandwidth": 0.05, "direction": "both", "auto_detect": 0, "num_notches": 1},
             "Anisotropic": {"iterations": 10, "kappa": 30.0, "gamma": 0.1, "option": 1},
+            "Wiener": {"psf_size": 5, "psf_sigma": 1.0, "nsr": 0.01, "clip_output": 1},
+            "Richardson-Lucy": {"psf_size": 5, "psf_sigma": 1.0, "iterations": 10, "regularization": 0.001, "clip_output": 1},
         },
         "pipeline_filters": ["Linewise", "Notch", "NLM"],
         "auto_apply": True,

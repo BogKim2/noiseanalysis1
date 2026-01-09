@@ -13,6 +13,8 @@ from .fourier import FourierFilter
 from .linewise import LinewiseFilter
 from .notch import NotchFilter
 from .anisotropic import AnisotropicFilter
+from .wiener import WienerFilter
+from .richardson_lucy import RichardsonLucyFilter
 
 
 class FilterPipeline:
@@ -27,6 +29,8 @@ class FilterPipeline:
         "Linewise": LinewiseFilter,
         "Notch": NotchFilter,
         "Anisotropic": AnisotropicFilter,
+        "Wiener": WienerFilter,
+        "Richardson-Lucy": RichardsonLucyFilter,
     }
     
     def __init__(self, max_filters: int = 3):

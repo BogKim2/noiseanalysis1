@@ -66,8 +66,8 @@ class GridSearchOptimizer(OptimizerBase):
         
         # 정수 파라미터 처리
         is_integer = param_name in ['window_size', 'iterations', 'num_notches', 'd',
-                                     'templateWindowSize', 'searchWindowSize', 'order']
-        needs_odd = param_name in ['window_size', 'templateWindowSize', 'searchWindowSize']
+                                     'templateWindowSize', 'searchWindowSize', 'order', 'psf_size']
+        needs_odd = param_name in ['window_size', 'templateWindowSize', 'searchWindowSize', 'psf_size']
         
         if is_integer:
             values = list(range(int(search_min), int(search_max) + 1, max(1, int(base_step))))
